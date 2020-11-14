@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <h4><strong>Name:</strong> <%= @project.name %> </h4>
+</p>
+<p>
+  <h4><strong>Justification:</strong> <%= @project.justification %> </h4>
+</p>
+<p>
+  <h4><strong>Goals:</strong> <%= @project.goals %> </h4>
+</p>
+<p>
+  <h4><strong>Cost:</strong> <%= @project.cost %> </h4>
+</p>
+<p>
+  <h4><strong>Alliance:</strong> <%= @project.alliance %> </h4>
+</p>
+
+<br>
+<%= link_to '', edit_project_path(@project), class: 'btn btn-outline-primary fas fa-edit', title: "Edit" %>
+<%= link_to '', projects_path, class: 'btn btn-outline-secondary fa fa-list-ol', title: "All" %>

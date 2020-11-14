@@ -1,0 +1,43 @@
+<%= form_with(model: alliance, local: true) do |form| %>
+  <% if alliance.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(alliance.errors.count, "error") %> prohibited this alliance from being saved:</h2>
+
+      <ul>
+        <% alliance.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="bs-callout bs-callout-primary">
+
+    <div class="form-group col-md-12">
+      <%= form.label :start_date %>
+      <%= form.date_field :start_date, class: 'form-control' %>
+    </div>
+
+    <div class="form-group col-md-12">
+      <%= form.label :end_date %>
+      <%= form.date_field :end_date, class: 'form-control' %>
+    </div>
+
+    <div class="form-group col-md-12">
+      <%= form.label :institution %>
+      <%= form.collection_select(:institution_id, Institution.all, :id, :name, class: 'form-control') %>
+    </div>
+
+    <div class="form-group col-md-12">
+      <%= form.label :company %>
+      <%= form.collection_select(:company_id, Company.all, :id, :name, class: 'form-control') %>
+    </div>
+    
+  </div>
+
+  <div class="actions pull-right col-md-6">
+    <%= link_to 'All', alliances_path, class: 'btn btn-default' %>
+    <%= form.submit "Submit"%>
+  </div>
+
+<% end %>

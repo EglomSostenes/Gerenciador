@@ -1,0 +1,42 @@
+<%= form_with(model: employee, local: true) do |form| %>
+  <% if employee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+      <ul>
+        <% employee.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="bs-callout bs-callout-primary">
+
+    <div class="form-group col-md-12">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
+
+    <div class="form-group col-md-12">
+      <%= form.label :type_document %>
+      <%= form.select :type_document, options_for_select(["CPF", "CNPJ"], selected: form.object.type_document), {class: 'form-control'} %>
+    </div>
+
+    <div class="form-group col-md-12">
+      <%= form.label :document %>
+      <%= form.text_field :document, class: 'form-control' %>
+    </div>
+
+    <div class="form-group col-md-12">
+      <%= form.label :type_contract %>
+      <%= form.select :type_contract, options_for_select(["PJ", "CLT"], selected: form.object.type_contract), {class: 'form-control'} %>
+    </div>
+    
+  </div>
+
+  <div class="actions pull-right col-md-6">
+    <%= link_to 'All', employees_path, class: 'btn btn-default' %>
+    <%= form.submit "Submit"%>
+  </div>
+<% end %>

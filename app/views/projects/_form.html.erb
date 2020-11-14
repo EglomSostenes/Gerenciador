@@ -1,0 +1,46 @@
+<%= form_with(model: project, local: true) do |form| %>
+  <% if project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+        <% project.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="bs-callout bs-callout-primary">
+
+    <div class="form-group col-md-12">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
+
+    <div class="form-group col-md-12">
+      <%= form.label :justification %>
+      <%= form.text_field :justification, class: 'form-control' %>
+    </div>
+
+    <div class="form-group col-md-12">
+      <%= form.label :goals %>
+      <%= form.text_field :goals, class: 'form-control' %>
+    </div>
+
+    <div class="form-group col-md-12">
+      <%= form.label :cost %>
+      <%= form.text_field :cost, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :alliance %>
+      <%= form.select :alliance_id, options_for_select(Alliance.all.collect {|p| [p, p.id]}, selected: @project.alliance.try(:id)), {class: 'form-control'} %>
+    </div>
+  </div>
+
+  <div class="actions pull-right col-md-6">
+    <%= link_to 'All', projects_path, class: 'btn btn-default' %>
+    <%= form.submit "Submit"%>
+  </div>
+<% end %>

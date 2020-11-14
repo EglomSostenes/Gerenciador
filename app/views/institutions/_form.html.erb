@@ -1,0 +1,42 @@
+<%= form_with(model: institution, local: true) do |form| %>
+  <% if institution.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(institution.errors.count, "error") %> prohibited this institution from being saved:</h2>
+
+      <ul>
+        <% institution.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="bs-callout bs-callout-primary">
+
+    <div class="form-group col-md-12">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
+
+    <div class="form-group col-md-12">
+      <%= form.label :type_document %>
+      <%= form.select :type_document, options_for_select(["CPF", "CNPJ"], selected: form.object.type_document), {class: 'form-control'} %>
+    </div>
+
+    <div class="form-group col-md-12">
+      <%= form.label :document %>
+      <%= form.text_field :document, class: 'form-control' %>
+    </div>
+
+    <div class="form-group col-md-12">
+      <%= form.label :coverage %>
+      <%= form.select :coverage, options_for_select(["city", "state", "federal"], selected: form.object.coverage), {class: 'form-control'} %>
+    </div>
+    
+  </div>
+
+  <div class="actions pull-right col-md-6">
+    <%= link_to 'All', institutions_path, class: 'btn btn-default' %>
+    <%= form.submit "Submit"%>
+  </div>
+<% end %>

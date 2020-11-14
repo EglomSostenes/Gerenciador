@@ -1,0 +1,42 @@
+<%= form_with(model: company, local: true) do |form| %>
+  <% if company.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
+
+      <ul>
+        <% company.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="bs-callout bs-callout-primary">
+
+    <div class="form-group col-md-12">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
+
+    <div class="form-group col-md-12">
+      <%= form.label :type_document %>
+      <%= form.select :type_document, options_for_select(["CPF", "CNPJ"], selected: form.object.type_document), {class: 'form-control'} %>
+    </div>
+
+    <div class="form-group col-md-12">
+      <%= form.label :document %>
+      <%= form.text_field :document, class: 'form-control' %>
+    </div>
+
+    <div class="form-group col-md-12">
+      <%= form.label :cnae %>
+      <%= form.text_field :cnae, {class: 'form-control'} %>
+    </div>
+    
+  </div>
+
+  <div class="actions pull-right col-md-6">
+    <%= link_to 'All', companies_path, class: 'btn btn-default' %>
+    <%= form.submit "Submit"%>
+  </div>
+<% end %>

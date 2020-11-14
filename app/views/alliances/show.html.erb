@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <h4><strong>Start Date:</strong> <%= @alliance.start_date %> </h4>
+</p>
+<p>
+  <h4><strong>End Date:</strong> <%= @alliance.end_date %> </h4>
+</p>
+<p>
+  <h4><strong>Institution:</strong> <%= @alliance.institution.name %> </h4>
+</p>
+<p>
+  <h4><strong>Company:</strong> <%= @alliance.company.name %> </h4>
+</p>
+
+<br>
+<%= link_to '', edit_alliance_path(@alliance), class: 'btn btn-outline-primary fas fa-edit', title: "Edit" %>
+<%= link_to '', alliances_path, class: 'btn btn-outline-secondary fa fa-list-ol', title: "All" %>

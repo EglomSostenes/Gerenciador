@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <h4><strong>Name:</strong> <%= @company.name %> </h4>
+</p>
+<p>
+  <h4><strong>Type Document:</strong> <%= @company.type_document %> </h4>
+</p>
+<p>
+  <h4><strong>Document:</strong> <%= @company.document %> </h4>
+</p>
+<p>
+  <h4><strong>Cnae:</strong> <%= @company.cnae %> </h4>
+</p>
+
+<br>
+<%= link_to '', edit_company_path(@company), class: 'btn btn-outline-primary fas fa-edit', title: "Edit" %>
+<%= link_to '', companies_path, class: 'btn btn-outline-secondary fa fa-list-ol', title: "All" %>

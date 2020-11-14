@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <h4><strong>Name:</strong> <%= @institution.name %> </h4>
+</p>
+<p>
+  <h4><strong>Type Document:</strong> <%= @institution.type_document %> </h4>
+</p>
+<p>
+  <h4><strong>Document:</strong> <%= @institution.document %> </h4>
+</p>
+<p>
+  <h4><strong>Coverage:</strong> <%= @institution.coverage %> </h4>
+</p>
+
+<br>
+<%= link_to '', edit_institution_path(@institution), class: 'btn btn-outline-primary fas fa-edit', title: "Edit" %>
+<%= link_to '', institutions_path, class: 'btn btn-outline-secondary fa fa-list-ol', title: "All" %>
