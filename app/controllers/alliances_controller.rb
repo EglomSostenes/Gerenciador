@@ -1,5 +1,6 @@
 class AlliancesController < ApplicationController
   before_action :set_alliance, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /alliances
   # GET /alliances.json

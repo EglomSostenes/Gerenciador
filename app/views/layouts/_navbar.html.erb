@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-md-12">
+       <!-- <nav class="navbar navbar-light bg-light"> -->
+            <form class="form-inline">
+                <a class="btn btn-outline-info" href=<%=projects_path%> role="button">
+                    Projects
+                </a>
+                
+                <% if current_user and current_user.admin == true%>
+                   <div style="padding-left: 10px;">
+                        <a class="btn btn-outline-secondary" href=<%=alliances_path%> role="button">
+                            Alliance
+                        </a>
+                    </div> 
+                    <div style="padding-left: 10px;">
+                        <a class="btn btn-outline-secondary" href=<%=institutions_path%> role="button">
+                            Institutions
+                        </a>
+                    </div>
+                    <div style="padding-left: 10px;">
+                        <a class="btn btn-outline-secondary" href=<%=companies_path%> role="button">
+                            Companies
+                        </a>
+                    </div>
+                    <div style="padding-left: 10px;">
+                        <a class="btn btn-outline-secondary" href=<%=employees_path%> role="button">
+                            Employees
+                        </a>
+                    </div>
+                    <div style="padding-left: 60%">
+                        <%= link_to('', destroy_user_session_path, method: :delete, class: 'btn btn-danger fa fa-sign-out', title: "Sign Out") %>
+                    </div>
+                <% else %>
+                    <div style="padding-left: 90%">
+                        <%= link_to('', destroy_user_session_path, method: :delete, class: 'btn btn-danger fa fa-sign-out', title: "Sign Out") %>
+                    </div>
+                <% end %>
+                
+            </form>
+       <!-- </nav> -->
+    </div>
+</div>

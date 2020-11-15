@@ -1,5 +1,6 @@
 class InstitutionsController < ApplicationController
   before_action :set_institution, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
   
   def index
     @institutions = Institution.all
