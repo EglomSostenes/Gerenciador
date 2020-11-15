@@ -3,7 +3,8 @@ class ProjectsController < ApplicationController
     load_and_authorize_resource
     
     def index
-      @projects = Project.all
+      @q = Project.ransack(params[:q])
+      @projects = filter_collection(@q)
     end
   
     def show
@@ -59,6 +60,10 @@ class ProjectsController < ApplicationController
       # Only allow a list of trusted parameters through.
       def project_params
         params.require(:project).permit(:name, :justification, :goals, :cost, :alliance_id)
+      end
+
+      def filter_collection(projects)
+        projects.result.includes(:alliance, :alliance)
       end
   end
   
