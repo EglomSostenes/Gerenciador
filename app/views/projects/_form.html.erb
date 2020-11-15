@@ -35,7 +35,7 @@
 
     <div class="form-group">
       <%= form.label :alliance %>
-      <%= form.select :alliance_id, options_for_select(Alliance.all.collect {|p| [p, p.id]}, selected: @project.alliance.try(:id)), {class: 'form-control'} %>
+      <%= form.select :alliance_id, options_for_select(Alliance.active.collect {|p| [p, p.id]}, selected: @project.alliance.try(:id)), {class: 'form-control'} %>
     </div>
   </div>
 
